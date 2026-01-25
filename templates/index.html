@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Measurement of Voting Equity | Research Portal</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="/static/css/site.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Measurement of Voting Equity (MoVE)</h1>
+      <nav class="site-nav">
+        <a href="#">Home</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#">Data</a>
+        <a href="#">Methods</a>
+        <a href="#">Publications</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <p>
+        The Measurement of Voting Equity (MoVE) project provides an academic framework
+        for evaluating voting equity across U.S. states and counties. This portal
+        supports interactive exploration and research-oriented data access.
+      </p>
+    </section>
+
+    <section class="dashboard-section">
+      <div class="dashboard-header">
+        <h2>Data Dashboard</h2>
+
+        <div class="dashboard-buttons">
+          <button class="tab-button is-active">Interactive Map</button>
+          <button class="tab-button">Data Extraction</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label for="metricSelect">Select Variable:</label>
+        <select id="metricSelect">
+          <option value="electoral_integrity">Measurement of Voting Equity Score</option>
+          <option value="another_metric">Another Metric</option>
+        </select>
+      </div>
+
+      <div id="dashboard">
+        <aside id="sidebar">
+          <h3 id="sidebar-title">United States</h3>
+          <p id="sidebar-subtitle">Select a state to view details.</p>
+          <div id="county-details"></div>
+        </aside>
+
+        <div id="map"></div>
+      </div>
+      <!--loading screen div-->
+      <div id="dashboard-container">
+        <div id="map"></div>
+        <div id="sidebar"></div>
+
+        <!-- Loading overlay inside dashboard -->
+        <div id="dashboard-loading">
+          <div class="spinner"></div>
+          <p>Loading...</p>
+        </div>  
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Measurement of Voting Equity. For academic and research use.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/js/us.js"></script>
+  <script src="/static/js/state.js"></script>
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
