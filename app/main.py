@@ -62,3 +62,22 @@ def state_census_data(state_id: str):
     if not census_data:
         raise HTTPException(status_code=404, detail="State not found")
     return census_data
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+
+@app.get("/about", response_class=HTMLResponse)
+async def about(request: Request):
+    return templates.TemplateResponse("aboutus.html", {"request": request})
+
+
+@app.get("/methods", response_class=HTMLResponse)
+async def methods(request: Request):
+    return templates.TemplateResponse("methods.html", {"request": request})
+
+
+@app.get("/publications", response_class=HTMLResponse)
+async def publications(request: Request):
+    return templates.TemplateResponse("publications.html", {"request": request})
