@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Measurement of Voting Equity | Research Portal</title>
+  <link rel="stylesheet" href="/static/css/site.css" />
+
+  <!--ALMOST SAME AS FOR ABOUT US STUFF LOOK FOR COMMENTS-->
+  <style>
+    .dropdown-row {
+        display: flex;
+        justify-content: space-between; /* text left, arrow right */
+        align-items: center;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 24px;          /* make label larger like h2 */
+        margin-top: 20px;
+        padding: 5px 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .dropdown-row:hover {
+        color: #0645ad; /* hover effect */
+    }
+
+    /* Arrow styling */
+        .dropdown-arrow {
+        font-size: 36px;
+        transition: transform 0.5s ease;
+        display: inline-block;
+        transform-origin: center;
+        width: 80px; 
+        text-align: center;
+    }
+
+    /* Rotation class for arrow */
+        .dropdown-arrow.rotate {
+        transform: rotate(180deg);
+    }
+
+    /* Dropdown content LOOK HERE FOR DIFF STUFF */
+        .dropdown-content {
+        display: none; /* hidden by default */
+        margin-top: 10px;
+        margin-left: 10px;
+        line-height: 1.6;
+        /*word-spacing: 2px;*/
+        /*letter-spacing: 0.5px;*/
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        color: var(--muted);
+    }
+      /*SAME STUFF NO CHANGES*/
+    .dropdown-content.show {
+        display: block;
+    }
+
+    .dropdown-content ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+
+    .dropdown-content li {
+        margin-bottom: 5px;
+    }   
+    /*NEW STUFF TOO*/
+    .movescoreexp {
+      margin-top: 10px;
+      margin-left: 10px;
+      /*word-spacing: 1px;*/
+      /*letter-spacing: 0.5px;*/
+      line-height: 1.6;
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Measurement of Voting Equity (MoVE)</h1>
+      <!-- CHANGES-->
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/#dashboard">Dashboard</a>
+        <a href="/about">About Us</a>
+        <a href="/methods">Methods</a>
+        <a href="/publications">Publications</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="main-content">
+        <h1>Methodology and Importance</h1>
+        
+
+        <div class="movescoreexp">
+          <p>
+          Our data collection process is labor intensive. 
+          We employ mostly undergraduate research assistants to find the data through several 
+          approaches, all of which require research assistants (RAs) to go county-by-county collecting 
+          the relevant information. This team of RAs includes students from Scripps College, 
+          Pomona College, Pitzer College, Claremont Graduate University, University of Pittsburgh, and Towson University.
+          </p>
+        </div>
+          <h2>MoVE Score</h2>
+          <h3>How the Score is Calculated</h3>
+            <div class="movescoreexp">
+              <p>
+                The score is constructed as a composite index that combines multiple indicators related to voter information, 
+                registration access, administrative support, and voting infrastructure. Each individual component is first standardized 
+                so that all measures are placed on the same scale. This step ensures that no single factor carries more weight 
+                simply because it was originally measured in larger numerical units. Standardization allows each component 
+                to contribute equally to the overall score.
+              </p>
+              <p>
+                After standardization, the components are added together to create a single additive index. Because each element 
+                is weighted equally, the final score reflects the cumulative strength of all included factors. Jurisdictions 
+                that perform consistently well across many areas will receive higher overall scores, while those with weaker 
+                performance across multiple components will receive lower scores.
+              </p>
+              <p>
+                The combined index is then rescaled to a 0–100 range to make interpretation more intuitive. A score of 0 represents 
+                the lowest observed level of overall performance in the dataset, and 100 represents the highest observed level. Scores in 
+                between indicate relative standing: higher values reflect stronger overall infrastructure, access, and support, while lower 
+                values indicate comparatively fewer resources or weaker systems. Importantly, the score is comparative within the dataset — it 
+                shows how units perform relative to one another rather than against an absolute benchmar
+              </p>
+            </div>
+          <h3>What the Score Means</h3>
+            <div class="movescoreexp">
+              <p>
+                A county with a higher score (closer to 100) is performing well across the different dimensions measured—meaning residents 
+                generally have strong access to registration and voting information, polling options, language support, drop boxes or vote 
+                centers, reliable mail access, and adequate administrative capacity and state support. These places tend to offer clearer 
+                communication, better staffing, more voting options, and fewer structural barriers overall.
+              </p>
+              <p>
+                A lower score (closer to 0) signals that a county may have weaknesses in several of those areas—such as limited information 
+                channels, fewer voting options, communication gaps about changes, staffing shortages, or weaker mail service or state support. 
+                Lower scores do not necessarily imply intentional barriers; rather, they highlight areas where access is more constrained and 
+                where improvements would make voting easier and more equitable.
+              </p>
+            </div>
+        <div class="dropdown-row">
+            <span class="dropdown-label">Collecting Information on Registration and Voting Accessibility</span>
+            <span class="dropdown-arrow">⌵</span>
+        </div>
+        <div class="dropdown-content">
+            <p>
+            We gather data on how counties provide registration and voting information by examining publicly available sources such as 
+            county election office websites, DMV service descriptions, government agency pages, and PDF guides. 
+            When online information is limited, we supplement with direct outreach via email or phone to 
+            local election officials, public assistance offices, and DMV branches. We then code the presence or absence of services 
+            (e.g., whether information is provided at DMVs, in minority languages, or through media outlets) using dichotomous (0/1) or additive scales.
+            </p>
+            <h3>Why This Information Matters</h3>
+            <p>
+              Understanding where and how registration and voting information is disseminated helps assess whether voters have equitable access 
+              to fundamental election resources. The National Voter Registration Act (NVRA) requires that states offer registration at DMVs, by mail, 
+              and at public assistance and disability offices, so documenting compliance reveals where voters may be underserved. Moreover, outreach to 
+              general and minority media sources is essential to reaching younger voters, low‑income residents, and communities of color, who rely on 
+              these channels at higher rates to prepare for elections.
+            </p>
+        </div>
+
+        <div class="dropdown-row">
+            <span class="dropdown-label">Collecting Information on Election Administration Practices</span>
+            <span class="dropdown-arrow">⌵</span>
+        </div>
+        <div class="dropdown-content">
+            <p>
+              We review county election websites and state-level directives to identify policies on informing voters about polling place changes, drop box 
+              availability, early voting locations, and vote centers. When online information is insufficient, we rely on direct communication with county 
+              clerks or election supervisors to confirm practices. Each item is coded dichotomously (0/1) to record whether voters are notified about changes 
+              through official communication channels.
+            </p>
+            <h3>Why This Information Matters</h3>
+            <p>
+              Changes to polling places, drop boxes, and early voting sites significantly affect voter participation. Research shows that reduced or relocated 
+              polling locations can suppress turnout — especially among minority voters — even when absentee voting options exist. Knowing which counties proactively 
+              inform voters helps identify where last‑minute changes could lead to confusion, long lines, or disenfranchisement. Tracking these practices allows 
+              the MoVE project to measure how effectively counties maintain voter access during shifting election conditions.
+            </p>
+        </div>
+
+        <div class="dropdown-row">
+            <span class="dropdown-label">Collecting Information on Administrative Capacity (Poll Workers, Funding, Equipment)</span>
+            <span class="dropdown-arrow">⌵</span>
+        </div>
+        <div class="dropdown-content">
+            <p>
+              We examine official county budget documents, state election funding reports, public briefings, and staffing updates to determine whether counties 
+              have adequate poll worker staffing, training, and funding. We also review state allocations of Help America Vote Act (HAVA) funds and whether counties 
+              publicly acknowledge receipt or use of these funds. Media campaigns, diversity of poll workers, and language assistance offerings are evaluated using 
+              news releases, county outreach posts, and election office statements.
+            </p>
+            <h3>Why This Information Matters</h3>
+            <p>
+              Poll worker shortages, lack of training, and inadequate funding directly threaten the smooth and equitable functioning of elections. Shortages can cause 
+              polling place closures or consolidations, disproportionately affecting marginalized groups. Meanwhile, the presence of diverse, well‑trained poll workers 
+              improves accessibility and voter trust. Accurate measurement of administrative capacity allows MoVE to identify regions at risk of service failures and 
+              advocate for better resource allocation.
+            </p>
+        </div>
+
+        <div class="dropdown-row">
+            <span class="dropdown-label">Collecting Information on Alternative Voting Options (Drop Boxes, Vote Centers, Mail Service)</span>
+            <span class="dropdown-arrow">⌵</span>
+        </div>
+        <div class="dropdown-content">
+            <p>
+              We determine county availability of drop boxes, vote centers, and residential mail delivery by reviewing state statutes, county election office information, 
+              USPS service maps, and national datasets from NCSL and USPS. If postal access or remote voting options are unclear, we contact local officials to confirm 
+              whether services exist across the entire county or only in specific areas. All variables are coded dichotomously (0/1) to capture presence or absence 
+              of these voting methods.
+            </p>
+            <h3>Why This Information Matters</h3>
+            <p>
+              Alternative voting methods are crucial for accessibility, especially for rural areas, voters with limited transportation, and individuals who cannot 
+              vote on Election Day. Lack of drop boxes, limited mail service, or absence of vote centers can significantly reduce convenience and contribute to lower 
+              turnout. Measuring these variables helps reveal structural barriers that affect both the efficiency and equity of voting systems.
+            </p>
+        </div>
+
+        <div class="dropdown-row">
+            <span class="dropdown-label">Collecting Information on Equity, Oversight, and Historical Context</span>
+            <span class="dropdown-arrow">⌵</span>
+        </div>
+        <div class="dropdown-content">
+            <p>
+              We review state election laws, county regulations, and published observation policies to determine whether nonpartisan and partisan observers 
+              are allowed. For historical voting rights abuses, we use Department of Justice records, civil rights lawsuits, and public reports compiled 
+              over the past 25 years. Counties are coded using Likert or dichotomous scales based on documented violations or legal restrictions.
+            </p>
+            <h3>Why This Information Matters</h3>
+            <p>
+              Oversight and transparency are foundational to public trust in elections. Allowing nonpartisan observers promotes accountability, while 
+              excessive partisan oversight may introduce conflict or bias. Understanding a county’s history of voting rights violations reveals long-term 
+              structural inequities and helps contextualize present-day accessibility conditions. These measures allow MoVE to account for both current 
+              policies and legacy factors influencing voter experience.
+            </p>
+        </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Measurement of Voting Equity. For academic and research use.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/js/us.js"></script>
+  <script src="/static/js/state.js"></script>
+  <script src="/static/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdownRows = document.querySelectorAll(".dropdown-row");
+
+      dropdownRows.forEach(row => {
+        row.addEventListener("click", () => {
+          const content = row.nextElementSibling;
+          const arrow = row.querySelector(".dropdown-arrow");
+
+          content.classList.toggle("show");
+          arrow.classList.toggle("rotate");
+        });
+      });
+    });
+  </script>
+</body>
+</html>
