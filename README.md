@@ -1,3 +1,1 @@
-because i was not able to pull from your set state/county list (which would have been possible to do if i was testing on render account), i had to pull locally from my old stuff.
-i made some comments, but majority of my stuff ended up in main.js, so i apologise because some functions that were changed in main are actually in your state.js and us.js - these also have some minor changes but it's mostly just UI stuff (like opacity and decimals but they may overlap with main)
-use new css and html - they should be okay; for main - i have put the new stuff into caps, so try seeing if it works for you.
+
