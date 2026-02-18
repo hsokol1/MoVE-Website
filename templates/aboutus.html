@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Measurement of Voting Equity | Research Portal</title>
+
+  <link rel="stylesheet" href="/static/css/site.css" />
+
+  <!--MY CSS WAS NOT WORKING BUT TRY PASTING THIS THERE FIRST-->
+  <style>
+    .person-card {
+        display: flex;
+        margin-bottom: 20px;
+        gap: 20px; /* space between image and text */
+    }
+
+    .person-photo {
+        width: 360px;
+        height: 360px;
+        object-fit: cover;
+        flex-shrink: 0; /* prevent shrinking */
+    }
+
+    .person-info {
+        flex: 1;
+    }
+    .personpr {
+        line-height: 1.6;
+        /*word-spacing: 2px;*/
+        /*letter-spacing: 0.5px;*/
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        color: var(--muted);
+    }
+
+    .person-header {
+        display: flex;
+        justify-content: space-between; /* name left, email right */
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .person-info h3 {
+        margin: 0 0 5px 0;
+        font-size: 20px;
+    }
+
+    .person-email {
+        margin: 0 0 10px 0;
+        font-style: italic;
+        color: #555;
+    }
+
+    .person-info p {
+        margin: 0 0 10px 0;
+        line-height: 1.5;
+    }
+    .dropdown-row {
+        display: flex;
+        justify-content: space-between; /* text left, arrow right */
+        align-items: center;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 24px;          /* make label larger like h2 */
+        margin-top: 20px;
+        padding: 5px 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .dropdown-row:hover {
+        color: #0645ad; /* hover effect */
+    }
+
+    /* Arrow styling */
+        .dropdown-arrow {
+        font-size: 36px;
+        transition: transform 0.5s ease;
+        display: inline-block;
+        transform-origin: center;
+        width: 80px; 
+        text-align: center;
+    }
+
+    /* Rotation class for arrow */
+        .dropdown-arrow.rotate {
+        transform: rotate(180deg);
+    }
+
+    /* Dropdown content */
+        .dropdown-content {
+        display: none; /* hidden by default */
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .dropdown-content.show {
+        display: block;
+    }
+
+    .dropdown-content ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+
+    .dropdown-content li {
+        margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Measurement of Voting Equity (MoVE)</h1>
+      <!-- CHANGES-->
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/#dashboard">Dashboard</a>
+        <a href="/about">About Us</a>
+        <a href="/methods">Methods</a>
+        <a href="/publications">Publications</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="main-content">
+        <h1>About the MoVE Project</h1>
+        <h2>Founders</h2>
+        <div class="person-card">
+            <img src="https://www.towson.edu/images/headshots/detrick-joseph-sq.jpg" alt="Dr. Joseph Dietrich" class="person-photo">
+            <div class="person-info">
+                <div class="person-header">
+                    <h3>Dr. Joseph Dietrich</h3>
+                    <p class="person-email">
+                        Email:
+                        <a href="mailto:jdietrich@towson.edu">
+                        jdietrich@towson.edu
+                    </a></p>
+                </div>    
+                <p class="personpr">
+                    Dr. Joseph Dietrich is a political scientist specializing in race and ethnic politics, public opinion, 
+                    and voting behavior, with a particular focus on Native American and other minority communities. 
+                    He holds a Ph.D. in Political Science and an M.A. in Politics from Claremont Graduate University, 
+                    as well as a Ph.D., MPIA, and B.A. from University of Pittsburgh. With more than twenty years of 
+                    experience conducting survey and interview research, his work centers on political engagement and voter disenfranchisement.
+                    He is conducting several studies on voting efficacy among minority populations including one where he is co-developing 
+                    a voting efficacy score and another on the efficacy of voting by mail in increasing minority voter turnout. 
+                </p>
+                <p class="personpr">
+                    Dr. Dietrich has published extensively on voting rights, structural racism, felony disenfranchisement, and mail access in 
+                    Native communities, with recent articles appearing in <i>Social Science Quarterly, Studies in American Political Development</i>, 
+                    and other leading journals. His collaborative work also includes contributions to election administration research through 
+                    the MIT Election Data and Science Lab. He has received multiple grants supporting research on voting equity and Indigenous 
+                    politics and is an active member of major professional associations, including the American Political Science Association.
+                </p>
+            </div>
+        </div>
+
+        <div class="person-card">
+            <img src="https://www.cgu.edu/wp-content/uploads/2016/11/jean-schroedel-portrait-768x768.jpg" alt="Dr. Jean Reith Schroedel" class="person-photo">
+            <div class="person-info">
+                <div class="person-header">
+                    <h3>Dr. Jean Reith Schroedel</h3>
+                    <p class="person-email">
+                        Email:
+                        <a href="mailto:jean.schroedel@cgu.edu">
+                        jean.schroedel@cgu.edu
+                    </a></p>
+                </div>    
+                <p class="personpr">
+                    Dr. Jean Reith Schroedel is Professor Emerita of Political Science and former Thornton F. Bradshaw Professor of Public Policy at 
+                    Claremont Graduate University. She earned her B.A. in political science from the University of Washington in 1981 and her Ph.D. from the 
+                    Massachusetts Institute of Technology in 1990, and previously served as an assistant professor at Yale University. At CGU, she held numerous 
+                    leadership roles, including director of the Applied Women’s Studies Program, department chair, and dean of the School of Politics & Economics. 
+                    Her research interests span Native American voting rights, American political development, women and politics, religion and politics, and congressional 
+                    policymaking, and she has a strong record of collaborative scholarship with graduate students.
+                </p>
+                <p class="personpr">
+                    Dr. Schroedel is widely recognized for her influential books, including <i>Is the Fetus a Person? A Comparison of Policies Across the Fifty States (2000)</i>, 
+                    which earned the American Political Science Association’s Victoria Schuck Prize, as well as <i>Congress, the President, and Policymaking: A Historical Analysis (1994)</i> 
+                    and <i>Alone in a Crowd (1985)</i>. In recent years, she has focused extensively on Native American voting rights and the impact of the Voting Rights Act, publishing numerous 
+                    co-authored articles on voter access, mail-in voting, felony disenfranchisement, and political trust in Native communities. Her scholarship has been supported by major 
+                    foundations and has influenced both public debate and litigation, including serving as an expert witness in key voting rights cases.
+                </p>
+            </div>
+        </div>
+
+        <div class="person-card">
+            <img src="https://www.cgu.edu/wp-content/uploads/2016/06/Melissa-Rogers-CGU-768x768.jpg" alt="Dr. Melissa Rogers" class="person-photo">
+            <div class="person-info">
+                <div class="person-header">
+                    <h3>Dr. Melissa Rogers</h3>
+                    <p class="person-email">
+                        Email:
+                        <a href="mailto:melissa.rogers@cgu.edu">
+                        melissa.rogers@cgu.edu
+                    </a></p>
+                </div>    
+                <p class="personpr">
+                    Dr. Melissa Rogers is a professor of political science in the Division of Politics & Economics at Claremont Graduate University 
+                    and co-director of the Inequality and Policy Research Center. She earned her Ph.D. and M.A. in political science from the University 
+                    of California, San Diego and her B.A. from Brown University. Her research spans comparative politics, political economy, political geography, 
+                    Latin American politics, and Native American politics, with a central focus on economic inequality and voting rights.
+                </p>
+                <p class="personpr">
+                    Dr. Rogers studies the political economy of inequality, particularly the territorial distribution of resources and its effects on policymaking, 
+                    state-building, and fiscal development. Much of her recent work examines inequalities in voting access for Native Americans and the institutional 
+                    roots of spatial inequality. She is the author of <i>Geography, Capacity, and Inequality I: Spatial Inequality (2022)</i> and has a forthcoming 
+                    companion volume on redistribution, in addition to a developing manuscript on the political economy of Native American voting rights. Her scholarship 
+                    appears in leading journals such as the <i>Journal of Politics, Political Analysis, Regional Studies, and Studies in American Political Development</i>, 
+                    and includes extensive collaborative research on voter equity, decentralization, and geographic measurement in political science.
+                </p>
+            </div>
+        </div>
+
+        <div class="person-card">
+            <img src="https://sgpp.arizona.edu/sites/default/files/styles/az_medium/public/2025-08/Provins-Headshot.png.webp?itok=asSH9NlX" alt="Dr. Tessa Provins" class="person-photo">
+            <div class="person-info">
+                <div class="person-header">
+                    <h3>Dr. Tessa Provins</h3>
+                    <p class="person-email">
+                        Email:
+                        <a href="mailto:tessaprovins@arizona.edu">
+                        tessaprovins@arizona.edu
+                    </a></p>
+                </div>    
+                <p class="personpr">
+                    Dr. Tessa Provins is an Assistant Professor in the School 
+                    of Government and Public Policy at the University of Arizona. 
+                    Prior to joining Arizona, she served as an Assistant Professor in the Political Science 
+                    Department at the University of Pittsburgh from 2018 to 2024. She earned her M.A. (2016) and Ph.D. (2018) in 
+                    Political Science from the University of California, Merced and received her B.A. in Economics from Stanford University in 2013.
+                </p>
+                <p class="personpr">
+                    Dr. Provins's research focuses on American legislative institutions and Indigenous institutions and policy. In her work on American 
+                    institutions, she examines how the design of legislative bodies shapes outcomes for groups divided by race, gender, and party affiliation. 
+                    Her research on Indigenous institutions analyzes the structure of Native American tribal governments and their effects on intra-tribal, 
+                    inter-tribal, and government relationships, as well as policy outcomes. While she conducts tribal case studies, much of her work on Indigenous 
+                    politics takes a pan-tribal approach. Her scholarship has been published in leading journals such as the <i>Journal of Public Policy, 
+                    Political Research Quarterly, and Legislative Studies Quarterly</i>.
+                </p>
+            </div>
+        </div>
+        <!--idk whether this should be dropdown tbh-->
+        <div class="dropdown-row" id="contributors-row">
+            <span class="dropdown-label">Research Assistants</span>
+            <span class="dropdown-arrow" id="contributors-arrow">⌵</span>
+        </div>
+        <div class="dropdown-content" id="contributors-content">
+            <ul>
+                <li><strong>Brendan Hodges</strong>, Website Developer & Research Assistant, Towson University</li>
+                <li><strong>Halyna Sokoliouk</strong>, Website Developer & Lead Research Assistant, Towson University</li>
+                <li><strong>Grace Caraway</strong>, Lead Research Assistant, Towson University</li>
+                <li><strong>Henry Woolley</strong>, Research Assistant, Towson University</li>
+                <li><strong>Jess Jorden</strong>, Research Assistant, Towson University</li>
+                <li><strong>Stephen O'Donovan</strong>, Research Assistant, Towson University</li>
+                <li><strong>Treya Grace Barnes</strong>, Research Assistant, University of Arizona</li>
+                <li><strong>Paige Owens</strong>, Research Assistant, Towson University</li>
+                <li><strong>Nate Cowan</strong>, Research Assistant, Towson University</li>
+            </ul>
+        </div>
+
+        <div class="dropdown-row" id="contributors-row">
+            <span class="dropdown-label">Philanthropic Foundations</span>
+            <span class="dropdown-arrow" id="contributors-arrow">⌵</span>
+        </div>
+        <div class="dropdown-content" id="contributors-content">
+            <ul>
+                <li>Organization</li>
+            </ul>
+        </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Measurement of Voting Equity. For academic and research use.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/js/us.js"></script>
+  <script src="/static/js/state.js"></script>
+  <script src="/static/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdownRows = document.querySelectorAll(".dropdown-row");
+
+      dropdownRows.forEach(row => {
+        row.addEventListener("click", () => {
+          const content = row.nextElementSibling;
+          const arrow = row.querySelector(".dropdown-arrow");
+
+          content.classList.toggle("show");
+          arrow.classList.toggle("rotate");
+        });
+      });
+    });
+  </script>
+</script>
+</body>
+</html>
