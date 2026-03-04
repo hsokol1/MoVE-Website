@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+
+    <link rel="stylesheet" href="/static/css/site.css" />
+</head>
+<body>
+    <main class="container">
+        
+        <div class="dashboard-header" style="margin-bottom: 18px;">
+            <h2 style="margin: 0;">Variable Information</h2>
+        </div>
+
+        <section style="background: var(--card-bg); padding: 20px; border-radius: 12px; box-shadow: var(--card-shadow);">
+
+            <!-- Paragraph 1 -->
+            <p style="margin-top: 0; line-height: 1.6;">
+                Below are descriptions of county-level MoVE (Measurement of Voting Equity) variables available through the MoVE Data Extractor. 
+                Each variable represents a specific component of voting access, election administration, or informational transparency at the county level. 
+                The data is meticulously collected through direct communication with county election offices, public records, official documentation, 
+                and publicly available sources to ensure accuracy and consistency.
+            </p>
+
+            <!-- Paragraph 2 -->
+            <p style="line-height: 1.6;">
+                Together, these county-level variables form the foundation of the MoVE Index score. 
+                Each measure captures a distinct dimension of voting equity, and when combined, they provide a comprehensive assessment of how accessible and supportive a county’s election system is for its residents.
+            </p>
+
+            <!-- Table -->
+            <div style="margin-top: 24px;">
+                <table class="variables-table" style="width: 100%; border-collapse: collapse;">
+
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid var(--border); padding: 10px; text-align: left;">
+                                Variable Name
+                            </th>
+                            <th style="border: 1px solid var(--border); padding: 10px; text-align: left;">
+                                Description
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr data-id = "Registration Info">
+                        <td>Registration Information (0–5)</td>
+                        <td>
+                            Additive scale measuring whether the county provides registration information to the general public 
+                            in the following locations: DMV offices, government social service offices, general media services, 
+                            minority-oriented media services, and in minority languages.
+                        </td>
+                        </tr>
+                        <tr data-id = "Voting Info">
+                        <td>Voting Information (0–5)</td>
+                        <td>
+                            Additive scale measuring whether the county provides voting information to the general public 
+                            in the following locations: DMV offices, government social service offices, general media services, 
+                            minority-oriented media services, and in minority languages.
+                        </td>
+                        </tr>
+                        <tr data-id = "Registered Voter Info">
+                        <td>Registered Voter Information (0–4)</td>
+                        <td>
+                            Additive scale measuring whether the county provides the following information to registered voters: 
+                            polling locations and closures, drop box locations and changes, early voting locations and changes, 
+                            and voting center locations and updates.
+                        </td>
+                        </tr>
+                        <tr data-id = "Registration Drive">
+                        <td>Registration Drives (0,1)</td>
+                        <td>
+                            Dichotomous measure indicating whether the county held a voter registration drive in the past four years. 
+                            0 = no registration drive, 1 = registration drive.
+                        </td>
+                        </tr>
+                        <tr data-id = "Ease of Registration">
+                        <td>Ease of Registration (0–6)</td>
+                        <td>
+                            Additive scale measuring whether the county facilitates registration by: not requiring government-issued 
+                            identification, allowing registration at DMV offices, allowing registration at government social service 
+                            offices, assisting incomplete forms, not requiring notarization, and providing assistance in minority languages.
+                        </td>
+                        </tr>
+                        <tr data-id = "pollworkers">
+                        <td>Availability of Poll Workers (0–6)</td>
+                        <td>
+                            Additive scale measuring poll worker availability, including: no shortages, adequate funding, 
+                            recent training, demographic representation, assistance for limited English voters, and media recruitment campaigns.
+                        </td>
+                        </tr>
+                        <tr data-id = "Election Day Polling Locations">
+                        <td>Reduction in Election Day Polling Locations (0,1)</td>
+                        <td>
+                            Dichotomous measure indicating whether the county reduced Election Day polling locations in the past four years. 
+                            0 = no reduction, 1 = reduction.
+                        </td>
+                        </tr>
+                        <tr data-id = "Drop Box Score">
+                        <td>Drop Boxes (0,1)</td>
+                        <td>
+                            Dichotomous variable indicating whether the county provides drop boxes for voting. 
+                            0 = no drop boxes, 1 = drop boxes available.
+                        </td>
+                        </tr>
+                        <tr data-id = "Vote Center Score">
+                        <td>Vote Center (0,1)</td>
+                        <td>
+                            Dichotomous variable indicating whether the county has at least one vote center. 
+                            0 = no vote centers, 1 = at least one vote center.
+                        </td>
+                        </tr>
+                        <tr data-id = "Standard Mail">
+                        <td>Standard Mail Service (0,1)</td>
+                        <td>
+                            Dichotomous variable measuring whether the entire county has standard residential mail delivery. 
+                            1 = full residential mail service, 0 = some residents lack residential mail delivery.
+                        </td>
+                        </tr>
+                        <tr data-id = "Local Post Office">
+                        <td>Post Office Locations (0–5)</td>
+                        <td>
+                            Likert scale measure of access to post offices. 
+                            5 = all residents within 10 miles; 4 = some up to 20 miles; 3 = up to 40 miles; 
+                            2 = up to 60 miles; 1 = up to 80 miles; 0 = more than 80 miles.
+                        </td>
+                        </tr>
+                        <tr data-id = "State Support">
+                        <td>State Support for Elections (0–3)</td>
+                        <td>
+                            Likert scale measure of financial support provided by the state for elections. 
+                            0 = no support; 1 = limited funding; 2 = partial funding for all elections; 3 = full funding for all elections.
+                        </td>
+                        </tr>
+                        <tr data-id = "Technology State Funding">
+                        <td>State Support for Equipment (0,1)</td>
+                        <td>
+                            Dichotomous variable measuring whether the state provides funding for election equipment. 
+                            0 = no funding; 1 = funding provided.
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/js/extract.js"></script>
+    <script>
+        window.parent.postMessage({ type: "VARIABLES_READY" }, window.location.origin);
+
+        window.addEventListener("message", (event) => {
+            if (event.origin !== window.location.origin) return;
+
+            const msg = event.data;
+            if (!msg || msg.type !== "HIGHLIGHT_VAR_ROW") return;
+
+            const id = msg.id;
+
+            const row = document.querySelector(`tr[data-id="${CSS.escape(id)}"]`);
+            if (!row) {
+            console.warn("Row not found for id:", id);
+            return;
+            }
+
+            row.scrollIntoView({ behavior: "smooth", block: "center" });
+            row.classList.add("row-highlight");
+            setTimeout(() => row.classList.remove("row-highlight"), 5500);
+        });
+    </script>
+</body>
+</html>
