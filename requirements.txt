@@ -1,0 +1,8 @@
+numpy
+sqlalchemy
+fastapi
+uvicorn
+gunicorn
+jinja2
+pandas
+requests
