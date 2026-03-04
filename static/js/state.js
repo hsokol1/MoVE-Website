@@ -1,6 +1,6 @@
 ///STYLE FUNCTIONS IN STATE VIEW///
 function showCountySidebar(feature) {
-  const geoid = String(feature.properties.GEOID).padStart(5, "0");      // county GEOID (usually 5 digits)
+  const geoid = String(feature.properties.GEOID);      // county GEOID (usually 5 digits)
   const score = App.getCountyScore(geoid);
 
   const stateData = App.StateCensusData || {};
@@ -27,24 +27,22 @@ function showCountySidebar(feature) {
 
     <p><strong>MoVE Score:</strong> ${score ?? "N/A"}</p>
 
-    <h3 style="margin-top:12px;">County Demographics</h3>
+    <h3 style="margin-top:12px;">County Demographics:</h3>
 
     ${
       censusObj
         ? `<ul style="list-style:none; padding-left:0; margin-top:8px;">
-            <li><strong>Population:</strong> ${pop}</li>
-            <li><strong>Median Earnings:</strong> ${earn}</li>
-            <li><strong>Bachelor’s Degree Population:</strong> ${bach}</li>
+            <li><strong>- Population:</strong> ${pop}</li>
+            <li><strong>- Median Earnings:</strong> ${earn}</li>
+            <li><strong>- Bachelor’s Degree Population:</strong> ${bach}</li>
           </ul>`
         : `<p style="margin-top:8px;">Census data not available for GEOID ${geoid}.</p>`
     }
   `;
 }
 
-
 function showStateSidebar(stateName, stateFP) {
   const avg = App.getStateScore(stateFP);
-
   let countyList = '';
   App.selectedCountiesData.features.forEach(f => {
     const score = App.getCountyScore(f.properties.GEOID);
@@ -59,14 +57,30 @@ function showStateSidebar(stateName, stateFP) {
   document.getElementById('sidebar').innerHTML = `
     <button onclick="returnToUSView()" class="sidebar-button">Back to US</button>
     <h2>${stateName}</h2>
-    <p><strong>Average MoVE Score:</strong> ${avg ?? 'N/A'}</p>
-    <h3>Counties</h3>
-    <ul>${countyList}</ul>
+    <p><strong>Average MoVE Score:</strong> ${avg != null ? avg.toFixed(1) : 'N/A'}</p>
+
+    <h3>Election & Voting Info</h3><p>More details coming soon!</p><br/><br/>
+    
+    <button
+      class="dropdown-button"
+      onclick="toggleCountyList()"
+    >
+      Show Counties MoVe Scores
+    </button>
+
+    <ul id="county-list" class="is-hidden">
+      ${countyList}
+    </ul>
   `;
 }
 
+function toggleCountyList() {
+  const list = document.getElementById('county-list');
+  list.classList.toggle('is-hidden');
+}
+
 function countyStyle(feature) {
-  const geoid = String(feature.properties.GEOID).padStart(5, "0");
+  const geoid = String(feature.properties.GEOID);
   const score = App.countyScores?.[geoid]?.score ?? null;
 
   return {
@@ -81,12 +95,12 @@ function countyStyle(feature) {
 
 /// INTERACTION FUNCTIONS FOR COUNTIES ///
 function onEachCounty(feature, layer) {
-  const geoid = String(feature.properties.GEOID).padStart(5, "0");
+  const geoid = String(feature.properties.GEOID);
   const score = App.countyScores?.[geoid]?.score ?? null;
 
   layer.bindTooltip(
     `<strong>${feature.properties.NAME} County</strong><br/>
-     Score: ${score != null ? score.toFixed(2) : "N/A"}`,
+     Score: ${score != null ? score.toFixed(1) : "N/A"}`,
     {
       sticky: true,
       direction: "top",
@@ -132,7 +146,6 @@ async function loadCountyScoresForState(stateFP) {
     }
     App.allCountyScores = await res.json();
   }
-  console.log(App.allCountyScores);
   const fp = String(stateFP).padStart(2, "0");
 
   // Filter to selected state
@@ -158,6 +171,8 @@ async function loadStateCensusData(stateFP) {
   console.log(App.StateCensusData);
 }
 
+
+
 /// INITIALIZATION STATE VIEW FUNCTIONS ///
 async function showCountiesForState(stateFP) { 
   if (App.activeCountyLayer) App.map.removeLayer(App.activeCountyLayer);
@@ -174,25 +189,31 @@ async function showCountiesForState(stateFP) {
   }).addTo(App.map);
 }
 
-async function enterStateView(feature, layer) { // made async to await showCountiesForState
-  App.selectedStateFP = feature.properties.STATEFP;
-  App.selectedStateName = feature.properties.NAME;
+async function enterStateView(feature, layer) {
+  showDashboardLoading();
+  try {
+    App.selectedStateFP = feature.properties.STATEFP;
+    App.selectedStateName = feature.properties.NAME;
 
-  App.map.fitBounds(layer.getBounds(), { padding: [20, 20] });
+    App.map.fitBounds(layer.getBounds(), { padding: [20, 20] });
 
-  // Remove US layer
-  if (App.usStatesLayer && App.map.hasLayer(App.usStatesLayer)) {
-    App.map.removeLayer(App.usStatesLayer);
+    if (App.usStatesLayer && App.map.hasLayer(App.usStatesLayer)) {
+      App.map.removeLayer(App.usStatesLayer);
+    }
+
+    if (App.activeCountyLayer && App.map.hasLayer(App.activeCountyLayer)) {
+      App.map.removeLayer(App.activeCountyLayer);
+    }
+
+    await showCountiesForState(App.selectedStateFP);
+    showStateSidebar(App.selectedStateName, App.selectedStateFP);
+  } catch (e) {
+    console.error(e);
+  } finally {
+    hideDashboardLoading();
   }
-
-  // Remove existing counties layer
-  if (App.activeCountyLayer && App.map.hasLayer(App.activeCountyLayer)) {
-    App.map.removeLayer(App.activeCountyLayer);
-  }
-
-  await showCountiesForState(App.selectedStateFP);
-  showStateSidebar(App.selectedStateName, App.selectedStateFP);
 }
+
 
 
 
