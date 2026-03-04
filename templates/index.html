@@ -24,54 +24,114 @@
   </header>
 
   <main class="container">
-    <section class="intro">
-      <p>
-        The Measurement of Voting Equity (MoVE) project provides an academic framework
-        for evaluating voting equity across U.S. states and counties. This portal
-        supports interactive exploration and research-oriented data access.
-      </p>
+    <section class="move-intro">
+
+      <div class="move-mission">
+        <h3>Project Mission</h3>
+        <p>
+         The Measurement of Voting Equity (MoVE) project seeks to identify barriers to voting at the local level and 
+         understand how those barriers affect participation in our democracy. By examining county-level election systems, 
+         we work to measure and highlight differences in voter access across communities. Helping to ensure every eligible voter has an equal opportunity to participate in our democracy is the core mission of this project.
+        </p>
+      </div>
+
+      <div class="move-overview">
+        <div class="move-card">
+          <h4>County-Level Variables</h4>
+          <p>
+            Variables are meticulously collected through direct communication with election 
+            officials, public records, policy documentation, and publicly available sources.
+          </p>
+        </div>
+
+        <div class="move-card">
+          <h4>Composite MoVE Index</h4>
+          <p>
+            County-level measures contribute to a standardized MoVE Index score, allowing 
+            for comparative evaluation of election systems across jurisdictions.
+          </p>
+        </div>
+
+        <div class="move-card">
+          <h4>Interactive Research Access</h4>
+          <p>
+            The dashboard and data extractor provide structured access to detailed 
+            state- and county-level information for academic and policy research.
+          </p>
+        </div>
+      </div>
+
     </section>
 
-    <section class="dashboard-section">
+    <section class="dashboard-section" id="dashboard-section">
       <div class="dashboard-header">
         <h2>Data Dashboard</h2>
 
         <div class="dashboard-buttons">
-          <button class="tab-button is-active">Interactive Map</button>
-          <button class="tab-button">Data Extraction</button>
+          <button class="tab-button is-active" id="map-tab" type="button">
+            Interactive Map
+          </button>
+          <button class="tab-button" id="extract-tab" type="button">
+            Data Extraction
+          </button>
+          <button class ="tab-button" id = "view-variables-tab" type="button">
+            Variable Information
+          </button>
         </div>
       </div>
 
       <!-- MAP CONTROLS (only shown on map tab) -->
       <div class="details-map" id="map-controls">
-        <p style="margin-top: 6px; font-size: 11px; font-style: italic; color: #555;">
-          *Measurement of Voting Equity Index values are displayed on the map.
-        </p>
-        <p style="margin-top: 6px; font-size: 14px; font-style: italic; color: #000000;">  
-          The scale is divided into equal intervals, with higher scores indicating better performance.
-          Detailed county-level data are accessible via interactive map.
-        </p>
+            <p style="margin-top: 6px; font-size: 11px; font-style: italic; color: #555;">
+                *Measurement of Voting Equity Index values are displayed on the map.
+                <button type="button" class="info-btn" data-info="move-score">?</button>
+            </p>
+            <p style="margin-top: 6px; font-size: 14px; font-style: italic; color: #000000;">  
+                The scale is divided into equal intervals, with higher scores indicating better performance.
+                Detailed county-level data are accessible via an interactive map.
+            </p>
       </div>
 
-      <div id="dashboard">
-        <aside id="sidebar">
-          <h3 id="sidebar-title">United States</h3>
-          <p id="sidebar-subtitle">Select a state to view details.</p>
-          <div id="county-details"></div>
-        </aside>
+      <!-- MAP VIEW (toggle this) -->
+      <div id="map-view">
+        <div id="dashboard">
+          <div id="dashboard-loading" class="is-hidden">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+          </div>
 
-        <div id="map"></div>
+          <aside id="sidebar">
+            <h3 id="sidebar-title">United States</h3>
+            <p id="sidebar-subtitle">Select a state to view details.</p>
+            <div id="county-details"></div>
+          </aside>
+
+          <div id="map"></div>
+        </div>
+
+        <div id="map-footer-note">
+          <p style="margin-top: 6px; font-size: 14px; font-style: italic; color: #555; text-align: center;">
+            *Values on map reflect the selected variable.*
+          </p>
+        </div>
       </div>
-      <!--loading screen div-->
-      <div id="dashboard-container">
-        <div id="map"></div>
-        <div id="sidebar"></div>
 
-        <!-- Loading overlay inside dashboard -->
-        <div id="dashboard-loading">
-          <div class="spinner"></div>
-          <p>Loading...</p>
-        </div>  
+      <!-- EXTRACT VIEW (toggle this) -->
+      <div id="extract-view" class="is-hidden">
+        <iframe
+          title="MoVE Data Extraction"
+          src="/extract"
+          style="width: 100%; height: 700px; border: none;"
+        ></iframe>
+      </div>
+
+      <!-- VIEW VARIABLES VIEW (toggle this) -->
+      <div id="view-variables-view" class="is-hidden">
+        <iframe
+          title="MoVE Variable Information"
+          src="/variables"
+          style="width: 100%; height: 700px; border: none;"
+        ></iframe>
       </div>
     </section>
   </main>
@@ -86,5 +146,137 @@
   <script src="/static/js/us.js"></script>
   <script src="/static/js/state.js"></script>
   <script src="/static/js/main.js"></script>
+
+  <!-- Tab logic: show map-view or extract-view -->
+  <script>
+    (function () {
+      let activePopup = null;
+      const infoText = {
+        "move-score": `
+          <div>
+            <p style="margin:0 0 8px 0;">
+              The MoVE (Measurement of Voting Equity) score is a composite score that summarizes various factors related to voting access and equity at the county level.
+            </p>
+            <p style="margin:0;">
+              <a href="/methods" target="_blank" rel="noopener">
+                Learn more about the MoVE methodology
+              </a>
+            </p>
+          </div>
+          `,
+        "census-vars": `
+          <div>
+            <p style="margin:0 0 8px 0;">
+              Various U.S. Census ACS county-level variables.
+            </p>
+            <p style="margin:0;">
+              <a href="#" target="_blank" rel="noopener">
+                Visit the Census Bureau's ACS website
+              </a>
+            </p>
+          </div>
+        `
+      };
+      
+
+      const mapTab = document.getElementById("map-tab");
+      const extractTab = document.getElementById("extract-tab");
+      const viewVariablesTab = document.getElementById("view-variables-tab");
+
+      const mapView = document.getElementById("map-view");
+      const extractView = document.getElementById("extract-view");
+      const viewVariablesView = document.getElementById("view-variables-view");
+
+      const mapControls = document.getElementById("map-controls");
+
+      function showMap() {
+        mapView.classList.remove("is-hidden");
+        extractView.classList.add("is-hidden");
+        viewVariablesView.classList.add("is-hidden");
+
+        mapControls.classList.remove("is-hidden");
+
+        mapTab.classList.add("is-active");
+        extractTab.classList.remove("is-active");
+        viewVariablesTab.classList.remove("is-active");
+
+        if (window.map && typeof window.map.invalidateSize === "function") {
+          setTimeout(() => window.map.invalidateSize(), 50);
+        }
+      }
+
+      function showExtract() {
+        mapView.classList.add("is-hidden");
+        extractView.classList.remove("is-hidden");
+        viewVariablesView.classList.add("is-hidden");
+
+        mapControls.classList.add("is-hidden");
+
+        extractTab.classList.add("is-active");
+        mapTab.classList.remove("is-active");
+        viewVariablesTab.classList.remove("is-active");
+      }
+
+      function showVariables() {
+        mapView.classList.add("is-hidden");
+        extractView.classList.add("is-hidden");
+        viewVariablesView.classList.remove("is-hidden");
+
+        mapControls.classList.add("is-hidden");
+
+        viewVariablesTab.classList.add("is-active");
+        mapTab.classList.remove("is-active");
+        extractTab.classList.remove("is-active");
+      }
+      mapTab.addEventListener("click", showMap);
+      extractTab.addEventListener("click", showExtract);
+      viewVariablesTab.addEventListener("click", showVariables);
+      // default
+      showMap();
+
+      document.querySelectorAll(".info-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+          e.stopPropagation();
+          if (activePopup) {
+            activePopup.remove();
+            activePopup = null;
+          }
+          const popup = document.createElement("div");
+          popup.className = "info-popup";
+          popup.innerHTML = infoText[btn.dataset.info] || "No description available.";
+          btn.style.position = "relative";
+          btn.appendChild(popup);
+          activePopup = popup;
+        });
+      });
+
+      document.addEventListener("click", () => {
+        if (activePopup) {
+          activePopup.remove();
+          activePopup = null;
+        }
+      });
+
+      const variablesContainer = document.getElementById("view-variables-view");
+      const variablesIframe = variablesContainer.querySelector("iframe");
+
+      window.addEventListener("message", (event) => {
+        if (event.origin !== window.location.origin) return;
+        const msg = event.data;
+        if (!msg || msg.type !== "JUMP_TO_VAR") return;
+
+        // 1) switch UI to variables view (your existing tab logic)
+        showVariables();
+
+        // 2) forward message to the variables iframe
+        variablesIframe.contentWindow.postMessage(
+          { type: "HIGHLIGHT_VAR_ROW", id: msg.id },
+          window.location.origin
+        );
+      });
+
+    })();
+
+  </script>
 </body>
 </html>
