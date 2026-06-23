@@ -46,10 +46,10 @@ window.App = {
   },
 
   getColor(score) {
-    return score > 80 ? "#003049" :
-           score > 60 ? "#669BBC" :
-           score > 40 ? "#FDF0D5" :
-           score > 20 ? "#C1121F" : "#780000";
+    return score > 80 ? "#471CA8" :
+           score > 60 ? "#884AB2" :
+           score > 40 ? "#FF930A" :
+           score > 20 ? "#F24B04" : "#D1105A";
   }
 };
 
@@ -63,7 +63,7 @@ async function loadStateScores() {
 }
 
 async function loadStatesGeo() {
-  const res = await fetch("https://raw.githubusercontent.com/BrendanHodges/DATA-ACCESS/refs/heads/main/us_states.json");
+  const res = await fetch("/static/data/us_states.json");
   if (!res.ok) throw new Error(`us_states.json failed: ${res.status}`);
   return res.json();
 }
